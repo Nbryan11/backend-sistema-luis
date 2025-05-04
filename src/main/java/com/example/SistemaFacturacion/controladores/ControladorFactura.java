@@ -96,6 +96,7 @@ public class ControladorFactura {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @Transactional(readOnly = true)
     private FacturaResponseDTO convertirADTO(FacturaEntity factura) {
         FacturaResponseDTO dto = new FacturaResponseDTO();
         dto.setId(factura.getId());
