@@ -82,6 +82,7 @@ public class ControladorFactura {
         return ResponseEntity.ok(convertirADTO(facturaFinal));
     }
 
+    @Transactional(readOnly = true)
     @GetMapping
     public List<FacturaResponseDTO> listarFacturas() {
         return facturaRepository.findAll().stream()
